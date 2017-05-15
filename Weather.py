@@ -1,4 +1,4 @@
-import requests, re, json
+import requests, json
 
 result_ip = requests.get('http://ipinfo.io')
 
