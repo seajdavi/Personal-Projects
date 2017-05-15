@@ -12,8 +12,8 @@ It was initially created as a Jupyter file, but I also uploaded it as a regular 
 <li>Call the function SongAdder with any artist in your iTunes library that you want included in the game.  This is at the bottom of the file in the function called Initialize.</li>
 </ol>
 
-<h3>Weather</h3>
-<p>Finds your location based on your IP address and uses a weather API to get the current weather of that location.</p>
-
 <h3>Stocks</h3>
 <p>Uses Yahoo Finance to show the stock details of specified companies.  There is a list called companies in the code that holds the symbols of certain companies.  Alter this list to show the info of other companies.</p>
+
+<h3>Weather</h3>
+<p>Finds your location based on your IP address and uses a weather API to get the current weather of that location.</p>
