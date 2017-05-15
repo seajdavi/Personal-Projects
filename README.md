@@ -7,7 +7,7 @@ It was initially created as a Jupyter file, but I also uploaded it as a regular 
 <h3>Song Hangman</h3>
 <p>A text based game similar to hangman that selects a random song from your iTunes library for the player to guess.  In order for it to work, you have to change 2 things in the code:</p>
 <ol>
-<li>Assign the variable called ‘path’ at the top of the file to the location of your iTunes music folder.</li>
+<li>Assign the variable called path at the top of the file to the location of your iTunes music folder.</li>
 <li>Call the function SongAdder with any artist in your iTunes library that you want included in the game.  This is at the bottom of the file in the function called Initialize.</li>
 </ol>
 
