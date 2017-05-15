@@ -198,11 +198,11 @@ def Game(attempts):
 
 
     if PlayAgain(song):
-        initialize()
+        Initialize()
     else:
         print("\n\n\nGame Over")
 
-def initialize():
+def Initialize():
     global all_songs, valid_input, guessed
     all_songs = {}
     valid_input = ['QUIT','SOLVE','ARTIST','ALBUM','A','B','C','D','E','F','G','H','I','J','K','L','M','N',
@@ -216,4 +216,4 @@ def initialize():
     Game(0)
 
 
-initialize()
+Initialize()
