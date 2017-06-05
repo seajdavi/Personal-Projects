@@ -67,7 +67,7 @@ def main():
     while True:
         # "A single client should try and keep polling to about once every 5 seconds."
         # From http://open-notify.org/Open-Notify-API/ISS-Location-Now/
-        time.sleep(20)
+        time.sleep(10)
         
         long, lat = GetLocation() #get current latitude and longitude
         iss.goto(long, lat) #move it correct position on picture
@@ -81,6 +81,3 @@ def main():
         
         prev_long = long
         prev_lat = lat
-
-
-main()

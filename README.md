@@ -10,10 +10,10 @@ It was initially created as a Jupyter file, but I also uploaded it as a regular 
 <br>*This downloads the webpage the data comes from and saves it as a file called playoff-goals*</p>
 
 <h3>Song Hangman</h3>
-<p>A text based game similar to hangman that selects a random song from your iTunes library for the player to guess.  In order for it to work, you have to change 2 things in the code:</p>
+<p>A simple game similar to hangman that selects a random song from your iTunes library for the player to guess.  In order for it to work, you have to change 2 things in the code:</p>
 <ol>
 <li>Assign the variable called path at the top of the file to the location of your iTunes music folder.</li>
-<li>Call the function SongAdder with any artist in your iTunes library that you want included in the game.  This is at the bottom of the file in the function called Initialize.</li>
+<li>Call the function song_adder with any artist in your iTunes library that you want included in the game.  This is at the bottom of the file in the function called create_song_dict.</li>
 </ol>
 
 <h3>Stocks</h3>
