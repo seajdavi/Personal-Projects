@@ -4,7 +4,7 @@ from tkinter import *
 
 # location of Itunes music folder
 # replace 'username' below with the username on your computer
-path = '/Users/seandavis/Music/iTunes/iTunes Media/Music/'
+path = '/Users/username/Music/iTunes/iTunes Media/Music/'
 
 
 class Application(Frame):
@@ -304,7 +304,7 @@ def create_song_dict():
     all_songs = {}
 
     # use song_adder function below with as many artists as desired
-    song_adder('The Beatles')
+    #song_adder('The Beatles')
     #song_adder('Queen')
     
 
