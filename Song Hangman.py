@@ -29,6 +29,8 @@ class Application(Frame):
         self.message_label = Label(self, font=(None, 20))
         self.artist_label = Label(self,text=all_songs[song][0],font=(None, 20))
         self.album_label = Label(self,text=all_songs[song][1],font=(None, 20))
+        self.wins_label = Label(self,text='Wins: ' + str(wins),font=(None, 20))
+        self.losses_label = Label(self,text='Losses: ' + str(losses), font=(None, 20))
         string = 'The song was ' + song + ' by ' + all_songs[song][0] + ' from the album ' + all_songs[song][1]
         self.correct_song_label = Label(self, text= string, wraplengt=400,font=(None, 20))
 
@@ -36,6 +38,8 @@ class Application(Frame):
         self.attempts_label.grid(row=0,column=0,sticky=W)
         self.letters_guessed_label.grid(row=1,column=0,sticky=W,columnspan=4)
         self.guess_label.grid(row=3,column=0)
+        #self.wins_label.grid(row=0,column=1)
+        #self.losses_label.grid(row=1,column=1)
 
 
         # Entry Box
@@ -65,7 +69,7 @@ class Application(Frame):
 
         self.show_artist_button.grid(row=6,column=0,sticky=W)
         self.show_album_button.grid(row=7,column=0,sticky=W)
-        self.restart_button.grid(row=0,column=1,columnspan=4,sticky=W)
+        self.restart_button.grid(row=0,column=2,sticky=W)
         self.go_button.grid(row=4,column=1,sticky=W)
 
 
@@ -87,10 +91,14 @@ class Application(Frame):
         self.solve_label.grid(row=3,column=0)
 
     def game_over(self,win):
+        global wins, losses
+        
         if win:
             self.correct_label.grid(row=9,column=0,columnspan=3)
+            wins += 1
         else:
             self.game_over_label.grid(row=9,column=0,columnspan=3)
+            losses += 1
             
         self.correct_song_label.grid(row=10,column=0,columnspan=3)
         self.play_song_button.grid(row=11,column=0,columnspan=3)
@@ -162,14 +170,15 @@ class Application(Frame):
             if user_response == song.upper():
                 self.board_label['text'] = song.upper()
                 self.game_over(True)
+                return
                 
             # if nothing is entered
             elif user_response == '':
-                self.error_label.grid(row=4,column=3,sticky=W)
+                self.error_label.grid(row=4,column=2,sticky=W)
                 
             # if user is wrong
             else:
-                self.incorrect_solve_label.grid(row=4,column=3,sticky=W)
+                self.incorrect_solve_label.grid(row=4,column=2,sticky=W)
                 attempts -= 1
                 self.attempts_label['text'] = 'Attempts Remaining: ' + str(attempts)
 
@@ -184,7 +193,7 @@ class Application(Frame):
                 working_song,attempts,message = input_handler(user_response, song, working_song, attempts)
                 self.attempts_label['text'] = 'Attempts Remaining: ' + str(attempts)
                 self.message_label['text'] = message
-                self.message_label.grid(row=4,column=3,sticky=W)
+                self.message_label.grid(row=4,column=2,sticky=W)
                 self.board_label['text'] = working_song
 
                 # update Letters Guessed label
@@ -198,10 +207,11 @@ class Application(Frame):
             if working_song == song.upper():
                 self.correct_label.grid(row=9,column=0,columnspan=3)
                 self.game_over(True)
+                return
                 
-            # song is not filled in and attempts has reached 0
-            elif attempts == 0:
-                self.game_over(False)
+        # song is not filled in and attempts has reached 0
+        if attempts == 0:
+            self.game_over(False)
 
                 
 
@@ -306,16 +316,17 @@ def create_song_dict():
     # use song_adder function below with as many artists as desired
     #song_adder('The Beatles')
     #song_adder('Queen')
-    
 
 
 def initialize():
-    global valid_input, guessed, working_song, attempts, song
+    global valid_input, guessed, working_song, attempts, song, wins, losses
     attempts = 10
     valid_input = ['QUIT','SOLVE','ARTIST','ALBUM','A','B','C','D','E','F','G','H','I','J','K','L','M','N',
                    'O','P','Q','R','S','T','U','V','W','X','Y','Z']
     guessed = []
-    
+
+    wins = 0
+    losses = 0
     # picks song and makes a blank version of it
     song = song_selector()
     working_song = blank_words(song)

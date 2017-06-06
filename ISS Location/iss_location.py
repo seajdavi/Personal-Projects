@@ -81,3 +81,5 @@ def main():
         
         prev_long = long
         prev_lat = lat
+
+main()
